@@ -23,6 +23,15 @@
 	
 	<context:component-scan base-package="com.jjambbongg.springmvcboard" />
 	
-	
+	<beans:bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<beans:property name="url" value="jdbc:mysql://localhost:3306/openboard"/>
+		<beans:property name="username" value="board" />
+		<beans:property name="password" value="boardpassword" />
+	</beans:bean>
+
+	<beans:bean name="template" class="org.springframework.jdbc.core.JdbcTemplate">
+		<beans:property name="dataSource" ref="dataSource" />
+	</beans:bean>   	
 	
 </beans:beans>
