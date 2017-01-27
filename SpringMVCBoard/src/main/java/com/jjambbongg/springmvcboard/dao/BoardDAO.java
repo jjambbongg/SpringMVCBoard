@@ -28,12 +28,6 @@ public class BoardDAO {
 	JdbcTemplate template = null;
 	
 	public BoardDAO() {
-		try {
-			Context context = new InitialContext();
-			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/mysql");
-		} catch (NamingException e) {
-			e.printStackTrace();
-		}
 		template = ConstantJDBC.template;
 	}
 	
